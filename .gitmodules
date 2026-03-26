@@ -1,21 +1,27 @@
 [submodule "booking-service"]
 	path = booking-service
 	url = https://github.com/vinilvidushanka/Booking-Service-GoDrive.git
+	branch = main
 [submodule "config-server"]
 	path = config-server
 	url = https://github.com/vinilvidushanka/Config-Server-GoDrive.git
+	branch = main
 [submodule "customer-service"]
 	path = customer-service
 	url = https://github.com/vinilvidushanka/Customer-Service-GoDrive.git
+	branch = main
 [submodule "eureka-server"]
 	path = eureka-server
 	url = https://github.com/vinilvidushanka/Eureka-Server-GoDrive.git
+	branch = main
 [submodule "gateway-server"]
 	path = gateway-server
 	url = https://github.com/vinilvidushanka/API-Gateway-GoDrive.git
+	branch = main
 [submodule "vehicle-service"]
 	path = vehicle-service
 	url = https://github.com/vinilvidushanka/Vehicle-Service-GoDrive.git
+	branch = main
 [submodule "config-repo"]
 	path = config-repo
 	url = https://github.com/vinilvidushanka/GoDrive-Config-Repo.git
