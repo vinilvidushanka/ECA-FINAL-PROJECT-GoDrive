@@ -1,7 +1,9 @@
 # 🚗 GoDrive - Enterprise Cloud Vehicle Management System
 
 ## 1. Project Overview
-**GoDrive** is a cloud-native, microservice-based vehicle management system developed for the **Enterprise Cloud Architecture (ITS 2130)** module. The system is designed to evaluate cloud-native patterns, including high availability, fault tolerance, and automatic horizontal scaling, all deployed on the **Google Cloud Platform (GCP)**.
+**GoDrive** is a cloud-native, microservice-based vehicle management system developed for the **Enterprise Cloud Architecture (ITS 2130)** module. This project demonstrates high availability, fault tolerance, and automatic horizontal scaling capabilities deployed on the **Google Cloud Platform (GCP)**.
+
+This project uses Spring Cloud microservices in a **Polyrepo** model. Each platform component and business microservice is maintained in its own GitHub repository, with this main repository acting as the central entry point using **Git Submodules**.
 
 ---
 
@@ -11,41 +13,78 @@
 | **Module** | ITS 2130 - Enterprise Cloud Architecture |
 | **Program** | HDSE @ IJSE |
 | **Student Name** | Vinil Vidushanka |
+| **Student Number** | 2301692013 |
 | **Submission Date** | 22nd March, 2026 |
 | **GCP Project ID** | `godrive-eca-project-a38366f2347c` |
 
 ---
 
 ## 3. Technology Stack 🛠️
-* **Backend:** Java 25+, Spring Boot, Spring Cloud (Gateway, Eureka, Config).
+* **Backend:** Java 25, Spring Boot, Spring Cloud (Gateway, Eureka, Config).
 * **Databases:**
-    * **Relational:** Cloud SQL (MySQL) for core structured data.
+    * **Relational:** Cloud SQL (MySQL) for core vehicle records.
     * **Non-Relational:** MongoDB for flexible metadata storage.
-* **Cloud Infrastructure (GCP):** VPC Network, Compute Engine (VMs), Cloud Storage Buckets, Load Balancer, Cloud NAT Gateway.
-* **Process Management:** **PM2** (Used for mandatory automatic restart and system reliability).
+* **Cloud Infrastructure (GCP):** VPC, Compute Engine (VMs), Cloud Storage Buckets, Load Balancer, Cloud NAT Gateway.
+* **Process Management:** **PM2** (Mandatory for automatic restart and system reliability).
 
 ---
 
-## 4. System Architecture
-This project follows a **Polyrepo architecture** utilizing **Git Submodules** for centralized management of all services.
-
-* **Config Server:** Centralized and externalized configuration management.
-* **Eureka Service Registry:** Used for real-time service registration and discovery.
-* **API Gateway:** Serves as the single entry point for all backend microservices.
-* **Auto-Scaling:** Backend services are deployed using Managed Instance Groups to support automatic horizontal scaling based on load.
+## 4. Live Public URLs (Mandatory)
+| Component | Public URL |
+| :--- | :--- |
+| **Frontend Application** | [http://34.93.114.63:80](http://34.93.114.63:80) |
+| **Eureka Dashboard (Mandatory)** | [http://34.93.114.63:8761](http://34.93.114.63:8761) |
 
 ---
 
-## 5. Mandatory Verification Links 🔗
-* **Eureka Dashboard (Public URL):** [http://34.93.114.63:8761](http://34.93.114.63:8761)
-* **Frontend Application:** [http://34.93.114.63:80](http://34.93.114.63:80)
+## 5. Repository Structure (Polyrepo + Submodules)
+This project follows a polyrepo architecture as required. Each service is included as a Git submodule.
+
+### 5.1 Main Submodules
+| Path | Purpose |
+| :--- | :--- |
+| **Platform** | Platform layer parent repo (Gateway, Registry, Config) |
+| **Services** | Business services parent repo (Vehicle Management) |
+| **Webapp** | Frontend application |
 
 ---
 
-## 6. Process Management (PM2) 🚀
-To ensure process-level fault tolerance, all application services are managed by **PM2**. This setup ensures that services restart automatically upon failure or system reboot.
+## 6. Spring Cloud Components Implemented
+* **Spring Cloud Config Server:** Centralized configuration management.
+* **Spring Cloud Netflix Eureka Server:** Service registration and discovery.
+* **Spring Cloud API Gateway:** Single entry point for all backend services.
 
+---
+
+## 7. High Availability and Auto Scaling (Mandatory)
+
+### 7.1 Microservice Auto Scaling
+| Check | Value |
+| :--- | :--- |
+| **Horizontal scaling supported** | YES |
+| **Autoscaler configuration** | YES |
+| **Instance group details** | YES |
+
+### 7.2 Platform High Availability
+| Check | Value |
+| :--- | :--- |
+| **Multi-instance deployment** | YES |
+| **Multi-zone deployment** | asia-southeast1-a, asia-southeast1-b, asia-southeast1-c |
+| **Fault-tolerance evidence** | YES |
+
+---
+
+## 8. PM2 Process Management and Auto Restart (Mandatory)
+Since the deployment is non-containerized, **PM2** is used to manage all application processes.
+
+### 8.1 PM2 Verification Commands
 ```bash
-# Execute these commands on the VM to verify status:
+pm2 status
 pm2 monit
-pm2 list
+pm2 startup
+pm2 save
+```
+
+## 9. Screen Recording Submission (Mandatory)
+
+Recording URL: https://drive.google.com/file/d/12L4fkenJXVYBrzwBsfufipEPKwNqd9bQ/view?usp=drive_link
