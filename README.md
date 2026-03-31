@@ -86,7 +86,7 @@ As per the non-containerized deployment requirements, all services are managed b
 ---
 
 ## 8. Screen Recording Submission
-**Recording URL:** https://drive.google.com/file/d/12L4fkenJXVYBrzwBsfufipEPKwNqd9bQ/view?usp=sharing
+**Recording URL:** https://drive.google.com/file/d/1hVu1FWFhgjEtpV5_8yO1UhFG2QkR1V_X/view?usp=sharing
 
 ---
 
